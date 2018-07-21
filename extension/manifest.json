@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "author": "Christian Schirge",
+  "name": "slidesPower",
+  "description": "The intention is to keep the screen on during a presentation",
+  "homepage_url": "https://github.com/hupebln/slidesPower",
+  "version": "0.1",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/presentation/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "images/slidesPower_16x16.png",
+    "48": "images/slidesPower_48x48.png",
+    "128": "images/slidesPower_128x128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+	  "16": "images/slidesPower_gray_16x16.png",
+      "24": "images/slidesPower_gray_24x24.png",
+      "32": "images/slidesPower_gray_32x32.png"
+	}
+  },
+  "permissions": [
+    "windows",
+    "power",
+    "activeTab",
+	"tabs"
+  ]
+}
