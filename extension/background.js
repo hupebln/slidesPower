@@ -1,14 +1,14 @@
 chrome.runtime.onMessage.addListener(function requested(request) {
-  if (request.method === 'resize') {
-    if (request.screenheight === request.windowinnerheight) {
-      chrome.power.requestKeepAwake("display");
-      console.log('keep awake');
+    if (request.method === 'resize') {
+        if (request.screenheight === request.windowinnerheight) {
+            chrome.power.requestKeepAwake("display");
+            console.log('keep awake');
+        }
+        else {
+            chrome.power.releaseKeepAwake();
+            console.log('release awake');
+        }
     }
-    else {
-      chrome.power.releaseKeepAwake();
-      console.log('release awake');
-    }
-  }
 });
 
 function changeIcon(activeInfo) {
